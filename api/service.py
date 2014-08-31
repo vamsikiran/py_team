@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from framework import WeberView
 import json
 from django.http.response import Http404
+from weber.settings import weber_db
 
 
 class Service(WeberView):
@@ -16,6 +17,8 @@ class Service(WeberView):
             responseText = json.dumps({'request':dir(self.request)})
         elif command=='cookies':
             responseText = json.dumps({'cookies':self.request.COOKIES})
+        elif command=='collections':
+            responseText = json.dumps({'collections':weber_db.collection_names()})
         else:
             raise Http404('Command Not Found')
         return HttpResponse(responseText)
