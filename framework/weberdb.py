@@ -10,6 +10,5 @@ class WeberDB(object):
 
     def find_document(self, collection, field, value):
         criteria = {'object.'+field: value}
-        print criteria
         attrs = self.db[collection].find_one(criteria)
         return attrs
