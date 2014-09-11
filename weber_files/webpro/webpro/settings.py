@@ -9,7 +9,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
+DATABASES = { 
     'default': {
         'ENGINE': 'django_mongodb_engine',
         'NAME': 'test',
